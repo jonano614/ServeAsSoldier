@@ -600,7 +600,7 @@ public class Test : CampaignBehaviorBase
 				}
 				if (disbandArmy && followingHero.PartyBelongedTo.Army != null && followingHero.PartyBelongedTo.MapEvent == null)
 				{
-					followingHero.PartyBelongedTo.Army.DisperseArmy(Army.ArmyDispersionReason.Unknown);
+					DisbandArmyAction.ApplyByUnknownReason(followingHero.PartyBelongedTo.Army);
 					disbandArmy = false;
 				}
 				if (MobileParty.MainParty.Army != null && followingHero.PartyBelongedTo.MapEvent == null)
@@ -628,7 +628,7 @@ public class Test : CampaignBehaviorBase
 					followingHero.PartyBelongedTo.ActualClan.Kingdom.CreateArmy(followingHero.PartyBelongedTo.LeaderHero, Hero.MainHero.HomeSettlement, Army.ArmyTypes.Patrolling);
 					if (target != null)
 					{
-						followingHero.PartyBelongedTo.SetMoveBesiegeSettlement(target);
+						followingHero.PartyBelongedTo.Ai.SetMoveBesiegeSettlement(target);
 					}
 					disbandArmy = false;
 				}
@@ -675,7 +675,7 @@ public class Test : CampaignBehaviorBase
 					followingHero.PartyBelongedTo.Army.AddPartyToMergedParties(MobileParty.MainParty);
 					MobileParty.MainParty.Army = followingHero.PartyBelongedTo.Army;
 					MobileParty.MainParty.IsActive = true;
-					MobileParty.MainParty.SetMoveEngageParty(followingHero.PartyBelongedTo);
+					MobileParty.MainParty.Ai.SetMoveEngageParty(followingHero.PartyBelongedTo);
 					if (followingHero != null && followingHero.PartyBelongedTo != null && followingHero.PartyBelongedTo.MapEvent != null && !followingHero.PartyBelongedTo.MapEvent.IsSiegeAssault)
 					{
 						AddNearbyParties();
@@ -1088,7 +1088,7 @@ public class Test : CampaignBehaviorBase
 			else
 			{
 				MobileParty randomElement3 = nearbyBandit().GetRandomElement();
-				randomElement3.SetMoveEngageParty(followingHero.PartyBelongedTo);
+				randomElement3.Ai.SetMoveEngageParty(followingHero.PartyBelongedTo);
 				randomElement3.Ai.SetDoNotMakeNewDecisions(true);
 				showPlayerParty();
 				MobileParty.MainParty.IsActive = true;
@@ -1140,7 +1140,7 @@ public class Test : CampaignBehaviorBase
 				}
 				MobileParty.MainParty.Position2D = randomElement2.Position2D;
 				CavOnly(followingHero.PartyBelongedTo).Position2D = randomElement2.Position2D;
-				MobileParty.MainParty.SetMoveEngageParty(randomElement2);
+				MobileParty.MainParty.Ai.SetMoveEngageParty(randomElement2);
 				GameMenu.ActivateGameMenu("party_wait");
 			}
 		}, true, -1, false);
@@ -1179,7 +1179,7 @@ public class Test : CampaignBehaviorBase
 				}
 				MobileParty.MainParty.Position2D = randomElement.Position2D;
 				CavOnly(followingHero.PartyBelongedTo).Position2D = randomElement.Position2D;
-				MobileParty.MainParty.SetMoveEngageParty(randomElement);
+				MobileParty.MainParty.Ai.SetMoveEngageParty(randomElement);
 				GameMenu.ActivateGameMenu("party_wait");
 			}
 		}, true, -1, false);
@@ -2669,7 +2669,7 @@ public class Test : CampaignBehaviorBase
 		{
 			if (faction != null && faction.IsAtWarWith(followingHero.MapFaction) && !faction.IsAtWarWith(Clan.PlayerClan.MapFaction))
 			{
-				DeclareWarAction.Apply(faction, Clan.PlayerClan.MapFaction);
+				DeclareWarAction.ApplyByDefault(faction, Clan.PlayerClan.MapFaction);
 			}
 			else if (faction != null && !faction.IsAtWarWith(followingHero.MapFaction) && faction.IsAtWarWith(Clan.PlayerClan.MapFaction))
 			{

@@ -2,6 +2,7 @@ using System;
 using System.Linq;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.GameComponents;
+using TaleWorlds.CampaignSystem.Map;
 using TaleWorlds.CampaignSystem.Party;
 using TaleWorlds.CampaignSystem.Party.PartyComponents;
 using TaleWorlds.CampaignSystem.Settlements;
@@ -193,7 +194,8 @@ internal class model : DefaultTargetScoreCalculatingModel
 			MobileParty lastAttackerParty2 = targetSettlement.LastAttackerParty;
 			if ((targetSettlement.LastAttackerParty.MapEvent != null && targetSettlement.LastAttackerParty.MapEvent.MapEventSettlement == targetSettlement) || targetSettlement.LastAttackerParty.BesiegedSettlement == targetSettlement)
 			{
-				foreach (MobileParty mobileParty3 in MobileParty.FindPartiesAroundPosition(targetSettlement.GatePosition, 6f, (Func<MobileParty, bool>)null))
+				LocatableSearchData<MobileParty> searchData = MobileParty.StartFindingLocatablesAroundPosition(targetSettlement.GatePosition, 6f);
+				for (MobileParty mobileParty3 = MobileParty.FindNextLocatable(ref searchData); mobileParty != null; mobileParty = MobileParty.FindNextLocatable(ref searchData))
 				{
 					if (mobileParty3.Aggressiveness > 0f && mobileParty3.MapFaction == lastAttackerParty2.MapFaction)
 					{
@@ -275,7 +277,8 @@ internal class model : DefaultTargetScoreCalculatingModel
 			float num21 = 0f;
 			if ((missionType == Army.ArmyTypes.Besieger && distance2 < RaidDistanceLimit) || (missionType == Army.ArmyTypes.Raider && targetSettlement.Party.MapEvent != null))
 			{
-				foreach (MobileParty mobileParty5 in MobileParty.FindPartiesAroundPosition((mobileParty.SiegeEvent != null && mobileParty.SiegeEvent.BesiegedSettlement == targetSettlement) ? mobileParty.Position2D : targetSettlement.GatePosition, 9f, (Func<MobileParty, bool>)null))
+				LocatableSearchData<MobileParty> searchData = MobileParty.StartFindingLocatablesAroundPosition((mobileParty.SiegeEvent != null && mobileParty.SiegeEvent.BesiegedSettlement == targetSettlement) ? mobileParty.Position2D : targetSettlement.GatePosition, 9f);
+				for (MobileParty mobileParty5 = MobileParty.FindNextLocatable(ref searchData); mobileParty != null; mobileParty = MobileParty.FindNextLocatable(ref searchData))
 				{
 					if (mobileParty5.CurrentSettlement != targetSettlement && mobileParty5.Aggressiveness > 0.01f && mobileParty5.MapFaction == targetSettlement.Party.MapFaction)
 					{
