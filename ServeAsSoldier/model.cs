@@ -195,7 +195,7 @@ internal class model : DefaultTargetScoreCalculatingModel
 			if ((targetSettlement.LastAttackerParty.MapEvent != null && targetSettlement.LastAttackerParty.MapEvent.MapEventSettlement == targetSettlement) || targetSettlement.LastAttackerParty.BesiegedSettlement == targetSettlement)
 			{
 				LocatableSearchData<MobileParty> searchData = MobileParty.StartFindingLocatablesAroundPosition(targetSettlement.GatePosition, 6f);
-				for (MobileParty mobileParty3 = MobileParty.FindNextLocatable(ref searchData); mobileParty != null; mobileParty = MobileParty.FindNextLocatable(ref searchData))
+				for (MobileParty mobileParty3 = MobileParty.FindNextLocatable(ref searchData); mobileParty3 != null; mobileParty3 = MobileParty.FindNextLocatable(ref searchData))
 				{
 					if (mobileParty3.Aggressiveness > 0f && mobileParty3.MapFaction == lastAttackerParty2.MapFaction)
 					{
@@ -278,7 +278,7 @@ internal class model : DefaultTargetScoreCalculatingModel
 			if ((missionType == Army.ArmyTypes.Besieger && distance2 < RaidDistanceLimit) || (missionType == Army.ArmyTypes.Raider && targetSettlement.Party.MapEvent != null))
 			{
 				LocatableSearchData<MobileParty> searchData = MobileParty.StartFindingLocatablesAroundPosition((mobileParty.SiegeEvent != null && mobileParty.SiegeEvent.BesiegedSettlement == targetSettlement) ? mobileParty.Position2D : targetSettlement.GatePosition, 9f);
-				for (MobileParty mobileParty5 = MobileParty.FindNextLocatable(ref searchData); mobileParty != null; mobileParty = MobileParty.FindNextLocatable(ref searchData))
+				for (MobileParty mobileParty5 = MobileParty.FindNextLocatable(ref searchData); mobileParty5 != null; mobileParty5 = MobileParty.FindNextLocatable(ref searchData))
 				{
 					if (mobileParty5.CurrentSettlement != targetSettlement && mobileParty5.Aggressiveness > 0.01f && mobileParty5.MapFaction == targetSettlement.Party.MapFaction)
 					{

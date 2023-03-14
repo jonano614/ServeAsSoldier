@@ -13,6 +13,7 @@ using TaleWorlds.CampaignSystem.Conversation;
 using TaleWorlds.CampaignSystem.Encounters;
 using TaleWorlds.CampaignSystem.GameMenus;
 using TaleWorlds.CampaignSystem.GameState;
+using TaleWorlds.CampaignSystem.Map;
 using TaleWorlds.CampaignSystem.MapEvents;
 using TaleWorlds.CampaignSystem.Party;
 using TaleWorlds.CampaignSystem.Roster;
@@ -716,9 +717,8 @@ public class Test : CampaignBehaviorBase
 
 	private void AddNearbyParties()
 	{
-		MobileParty[] nearbyParties = MapEvent.GetNearbyFreeParties(followingHero.PartyBelongedTo.Position2D);
-		MobileParty[] array = nearbyParties;
-		foreach (MobileParty nearbyParty in array)
+		MobileParty[] nearbyParties = GetNearbyFreeParties(followingHero.PartyBelongedTo.Position2D);
+		foreach (MobileParty nearbyParty in nearbyParties)
 		{
 			if (!nearbyParty.ShouldBeIgnored && (!nearbyParty.MapFaction.IsAtWarWith(followingHero.MapFaction) || !nearbyParty.MapFaction.IsAtWarWith(followingHero.PartyBelongedTo.MapEventSide.OtherSide.LeaderParty.MapFaction)))
 			{
@@ -734,6 +734,22 @@ public class Test : CampaignBehaviorBase
 				}
 			}
 		}
+	}
+
+	private MobileParty[] GetNearbyFreeParties(Vec2 position)
+	{
+		var result = new List<MobileParty>();
+		float radius = 4f;
+		LocatableSearchData<MobileParty> searchData = MobileParty.StartFindingLocatablesAroundPosition(MobileParty.MainParty.Position2D, radius);
+		for (MobileParty mobileParty = MobileParty.FindNextLocatable(ref searchData); mobileParty != null; mobileParty = MobileParty.FindNextLocatable(ref searchData))
+		{
+			if(mobileParty != MobileParty.MainParty && mobileParty.MapEvent == null && mobileParty.SiegeEvent == null && mobileParty.CurrentSettlement == null && mobileParty.AttachedTo == null && (mobileParty.IsLordParty || mobileParty.IsBandit || mobileParty.ShouldJoinPlayerBattles))
+			{
+				result.Add(mobileParty);
+			}
+		}
+
+		return result.ToArray();
 	}
 
 	public static void LeaveLordPartyAction(bool keepgear)
