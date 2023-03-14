@@ -9,6 +9,7 @@ using TaleWorlds.CampaignSystem.GameState;
 using TaleWorlds.CampaignSystem.Party;
 using TaleWorlds.CampaignSystem.Roster;
 using TaleWorlds.CampaignSystem.Settlements;
+using TaleWorlds.CampaignSystem.Settlements.Locations;
 using TaleWorlds.Core;
 using TaleWorlds.Localization;
 
@@ -185,10 +186,12 @@ public class TownRobberEvent : CampaignBehaviorBase
 		MobileParty.MainParty.IsActive = true;
 		gangParty = GangParty;
 		PlayerEncounter.RestartPlayerEncounter(GangParty.Party, PartyBase.MainParty, forcePlayerOutFromSettlement: false);
-		PlayerEncounter.Current.ForceAlleyFight = true;
+		//PlayerEncounter.Current.ForceAlleyFight = true;
 		PlayerEncounter.StartBattle();
-		CampaignMission.OpenAlleyFightMission(EventSettlement.LocationComplex.GetLocationWithId("center").GetSceneName(upgradeLevel), upgradeLevel);
-		GameMenu.ActivateGameMenu("robbery_aftermath");
+        Location locationWithId = LocationComplex.Current.GetLocationWithId("center");
+        CampaignMission.OpenAlleyFightMission(EventSettlement.LocationComplex.GetLocationWithId("center").GetSceneName(upgradeLevel), upgradeLevel, locationWithId,
+            MobileParty.MainParty.MemberRoster, gangParty.MemberRoster);
+        GameMenu.ActivateGameMenu("robbery_aftermath");
 	}
 
 	private MobileParty CreateGangParty()
