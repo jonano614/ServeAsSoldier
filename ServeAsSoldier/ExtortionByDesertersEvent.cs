@@ -92,7 +92,7 @@ internal class ExtortionByDesertersEvent : CampaignBehaviorBase
 			.Consequence(delegate
 			{
 				Test.conversation_type = null;
-				Test.followingHero.PartyBelongedTo.SetMoveModeHold();
+				Test.followingHero.PartyBelongedTo.Ai.SetMoveModeHold();
 				Test.followingHero.PartyBelongedTo.Ai.SetDoNotMakeNewDecisions(true);
 				deserterParty = CreateDeserterParty();
 			})
@@ -125,7 +125,7 @@ internal class ExtortionByDesertersEvent : CampaignBehaviorBase
 		}
 		_deserterMobileParty.ItemRoster.AddToCounts(DefaultItems.Grain, _deserterMobileParty.MemberRoster.Count);
 		_deserterMobileParty.IgnoreByOtherPartiesTill(CampaignTime.Never);
-		_deserterMobileParty.SetMoveEngageParty(Test.followingHero.PartyBelongedTo);
+		_deserterMobileParty.Ai.SetMoveEngageParty(Test.followingHero.PartyBelongedTo);
 		_deserterMobileParty.Ai.SetDoNotMakeNewDecisions(true);
 		return _deserterMobileParty;
 	}

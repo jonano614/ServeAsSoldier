@@ -7,20 +7,20 @@ using TaleWorlds.MountAndBlade;
 
 namespace ServeAsSoldier;
 
-[HarmonyPatch(typeof(AlleyFightSpawnHandler), "AfterStart")]
+[HarmonyPatch(typeof(AlleyFightMissionHandler), "AfterStart")]
 internal class AlleyArmourPatch
 {
-	private static bool Prefix(AlleyFightSpawnHandler __instance)
+	private static bool Prefix(AlleyFightMissionHandler __instance)
 	{
 		if (Test.followingHero != null)
 		{
-			MapEvent _mapEvent = (MapEvent)typeof(AlleyFightSpawnHandler).GetField("_mapEvent", BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic).GetValue(__instance);
+			MapEvent _mapEvent = (MapEvent)typeof(AlleyFightMissionHandler).GetField("_mapEvent", BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic).GetValue(__instance);
 			int num = _mapEvent.GetNumberOfInvolvedMen(BattleSideEnum.Defender);
 			int num2 = _mapEvent.GetNumberOfInvolvedMen(BattleSideEnum.Attacker);
 			int defenderInitialSpawn = num;
 			int attackerInitialSpawn = num2;
 			((MissionBehavior)(object)__instance).Mission.DoesMissionRequireCivilianEquipment = false;
-			MissionAgentSpawnLogic _missionAgentSpawnLogic = (MissionAgentSpawnLogic)typeof(AlleyFightSpawnHandler).GetField("_missionAgentSpawnLogic", BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic).GetValue(__instance);
+			MissionAgentSpawnLogic _missionAgentSpawnLogic = (MissionAgentSpawnLogic)typeof(AlleyFightMissionHandler).GetField("_missionAgentSpawnLogic", BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic).GetValue(__instance);
 			_missionAgentSpawnLogic.SetSpawnHorses(BattleSideEnum.Defender, spawnHorses: false);
 			_missionAgentSpawnLogic.SetSpawnHorses(BattleSideEnum.Attacker, spawnHorses: false);
 			MissionSpawnSettings missionSpawnSettings = MissionSpawnSettings.CreateDefaultSpawnSettings();

@@ -24,7 +24,7 @@ internal class CommonAreaPatch
 			}
 			foreach (CommonAreaMarker commonAreaMarker in __instance.Mission.ActiveMissionObjects.FindAllWithType<CommonAreaMarker>().ToList())
 			{
-				if (settlement.CommonAreas.Count >= commonAreaMarker.AreaIndex && Campaign.Current.VisualTrackerManager.CheckTracked((ITrackableBase)settlement.CommonAreas[commonAreaMarker.AreaIndex - 1]))
+				if (settlement.Alleys.Count >= commonAreaMarker.AreaIndex && Campaign.Current.VisualTrackerManager.CheckTracked((ITrackableBase)settlement.Alleys[commonAreaMarker.AreaIndex - 1]))
 				{
 					__instance.RegisterLocalOnlyObject(commonAreaMarker);
 				}

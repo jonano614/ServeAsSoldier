@@ -114,7 +114,7 @@ internal class CustomArenaTrainingMissionController : MissionLogic
 		AgentBuildData agentBuildData2 = agentBuildData.Team(team).InitialPosition(in spawnFrame.origin);
 		Vec2 vec = spawnFrame.rotation.f.AsVec2.Normalized();
 		Agent agent = mission.SpawnAgent(agentBuildData2.InitialDirection(in vec).NoHorses(!_spawnBothSideWithHorses).Equipment(_requireCivilianEquipment ? WithSparingWeapons(character.FirstCivilianEquipment, character.IsHero) : WithSparingWeapons(character.FirstBattleEquipment, character.IsHero))
-			.TroopOrigin(new SimpleAgentOrigin(character)), false, 0);
+			.TroopOrigin(new SimpleAgentOrigin(character)), false);
 		agent.FadeIn();
 		if (team == ((ReadOnlyCollection<Team>)(object)base.Mission.Teams)[0])
 		{

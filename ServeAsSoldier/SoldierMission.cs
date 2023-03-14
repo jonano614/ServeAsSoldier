@@ -39,7 +39,7 @@ internal class SoldierMission : MissionBehavior
 		}
 		if (attackerWeapon != null && attackerWeapon.IsRangedWeapon && attackerWeapon.WeaponClass == WeaponClass.Crossbow)
 		{
-			if (Hero.MainHero.GetPerkValue(DefaultPerks.Crossbow.Sniper) && hitDistance > 50f)
+			if (Hero.MainHero.GetPerkValue(DefaultPerks.Crossbow.LongShots) && hitDistance > 50f)
 			{
 				SkillLevelingManager.OnCombatHit((CharacterObject)affectorAgent.Character, (CharacterObject)affectedAgent.Character, null, null, blow.MovementSpeedDamageModifier, shotDifficulty, attackerWeapon, 0.5f * damage / affectedAgent.HealthLimit, CombatXpModel.MissionTypeEnum.Battle, affectorAgent.MountAgent != null, affectorAgent.Team == affectedAgent.Team, isAffectorUnderCommand: false, damage, isFatal: true, isSiegeEngineHit: false, affectorAgent.MountAgent != null && blow.AttackType == AgentAttackType.Collision);
 			}

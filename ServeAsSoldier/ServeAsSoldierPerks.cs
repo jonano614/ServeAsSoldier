@@ -32,7 +32,7 @@ public class ServeAsSoldierPerks : CampaignBehaviorBase
 		TextObject text11 = new TextObject("{=FLT0000212}Serve As Soldier : Headshots in battle generate extra skill xp.");
 		AddPerkDescription(DefaultPerks.Bow.BullsEye, text11.ToString());
 		TextObject text12 = new TextObject("{=FLT0000213}Serve As Soldier : Crossbow shots in battle that hit from over 50 meters away generate extra skill xp.");
-		AddPerkDescription(DefaultPerks.Crossbow.Sniper, text12.ToString());
+		AddPerkDescription(DefaultPerks.Crossbow.LongShots, text12.ToString());
 		TextObject text2 = new TextObject("{=FLT0000214}Serve As Soldier : Crossbow shots in battle while mounted generate extra skill xp.");
 		AddPerkDescription(DefaultPerks.Crossbow.Steady, text2.ToString());
 		TextObject text3 = new TextObject("{=FLT0000215}Serve As Soldier : Receive a 1000 gold bonus for every enemy lord knocked out in battle.");

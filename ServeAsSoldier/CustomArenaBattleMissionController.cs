@@ -141,7 +141,7 @@ internal class CustomArenaBattleMissionController : MissionLogic
 		AgentBuildData agentBuildData2 = agentBuildData.Team(team).InitialPosition(in spawnFrame.origin);
 		Vec2 vec = spawnFrame.rotation.f.AsVec2.Normalized();
 		Agent agent = Mission.Current.SpawnAgent(agentBuildData2.InitialDirection(in vec).NoHorses(noHorses: false).Equipment(WithSparingWeapons(character.FirstBattleEquipment, character.IsPlayerCharacter))
-			.TroopOrigin(new SimpleAgentOrigin(character)), false, 0);
+			.TroopOrigin(new SimpleAgentOrigin(character)), false);
 		agent.FadeIn();
 		if (character == CharacterObject.PlayerCharacter)
 		{
