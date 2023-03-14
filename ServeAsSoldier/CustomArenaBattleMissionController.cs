@@ -112,15 +112,15 @@ internal class CustomArenaBattleMissionController : MissionLogic
 
 	private void spawnTroop()
 	{
-		while (_troops.TotalManCount > 0 && (((ReadOnlyCollection<Team>)(object)base.Mission.Teams)[1].ActiveAgents.Count == 0 || ((ReadOnlyCollection<Team>)(object)base.Mission.Teams)[1].ActiveAgents.Count <= base.Mission.Teams.Player.ActiveAgents.Count / 2 + _kill_count / 10))
+		while (_troops.TotalManCount > 0 && (base.Mission.Teams[1].ActiveAgents.Count == 0 || base.Mission.Teams[1].ActiveAgents.Count <= base.Mission.Teams.Player.ActiveAgents.Count / 2 + _kill_count / 10))
 		{
 			TroopRosterElement troop = _troops.GetTroopRoster().GetRandomElement();
-			Agent agent = SpawnAgent(troop.Character, _initialSpawnFrames.GetRandomElement(), ((ReadOnlyCollection<Team>)(object)base.Mission.Teams)[1]);
+			Agent agent = SpawnAgent(troop.Character, _initialSpawnFrames.GetRandomElement(), base.Mission.Teams[1]);
 			agent.Defensiveness = 1f;
 			dictionary.Add(agent, troop.Character);
 			_troops.AddToCounts(troop.Character, -1);
 		}
-		if (((ReadOnlyCollection<Team>)(object)base.Mission.Teams)[1].ActiveAgents.Count == 0 && _troops.TotalHealthyCount == 0)
+		if (base.Mission.Teams[1].ActiveAgents.Count == 0 && _troops.TotalHealthyCount == 0)
 		{
 			MBInformationManager.AddQuickInformation(new TextObject("{=FLT0000128}The men need time to rest and recover.  There is no one left to fight"), 0, Test.followingHero.CharacterObject);
 		}
@@ -131,7 +131,7 @@ internal class CustomArenaBattleMissionController : MissionLogic
 		base.Mission.Teams.Add(BattleSideEnum.Defender, Hero.MainHero.MapFaction.Color, Hero.MainHero.MapFaction.Color2, Hero.MainHero.ClanBanner);
 		base.Mission.Teams.Add(BattleSideEnum.Attacker, uint.MaxValue, uint.MaxValue, Hero.MainHero.ClanBanner);
 		base.Mission.PlayerTeam = base.Mission.Teams.Defender;
-		((ReadOnlyCollection<Team>)(object)base.Mission.Teams)[0].SetIsEnemyOf(((ReadOnlyCollection<Team>)(object)base.Mission.Teams)[1], isEnemyOf: true);
+		base.Mission.Teams[0].SetIsEnemyOf(base.Mission.Teams[1], isEnemyOf: true);
 	}
 
 	private Agent SpawnAgent(CharacterObject character, MatrixFrame spawnFrame, Team team)
@@ -418,7 +418,7 @@ internal class CustomArenaBattleMissionController : MissionLogic
 		{
 			switchAgent();
 		}
-		if (Input.IsKeyPressed(InputKey.H) && base.Mission.Teams.Player.ActiveAgents.Count > 0 && ((ReadOnlyCollection<Team>)(object)base.Mission.Teams)[1].ActiveAgents.Count > 0)
+		if (Input.IsKeyPressed(InputKey.H) && base.Mission.Teams.Player.ActiveAgents.Count > 0 && base.Mission.Teams[1].ActiveAgents.Count > 0)
 		{
 			AutoTrain();
 		}

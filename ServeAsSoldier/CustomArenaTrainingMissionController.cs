@@ -82,7 +82,7 @@ internal class CustomArenaTrainingMissionController : MissionLogic
 			return;
 		}
 		TroopRosterElement troop = _troops.GetTroopRoster().GetRandomElement();
-		Agent agent = SpawnAgent(PlayerControled ? Test.followingHero.Culture.BasicTroop : troop.Character, _initialSpawnFrames.GetRandomElement(), PlayerControled ? ((ReadOnlyCollection<Team>)(object)base.Mission.Teams)[0] : ((ReadOnlyCollection<Team>)(object)base.Mission.Teams)[1]);
+		Agent agent = SpawnAgent(PlayerControled ? Test.followingHero.Culture.BasicTroop : troop.Character, _initialSpawnFrames.GetRandomElement(), PlayerControled ? base.Mission.Teams[0] : base.Mission.Teams[1]);
 		agent.Defensiveness = 1f;
 		dictionary.Add(agent, troop.Character);
 		if (PlayerControled)
@@ -98,7 +98,7 @@ internal class CustomArenaTrainingMissionController : MissionLogic
 		base.Mission.Teams.Add(BattleSideEnum.Defender, Hero.MainHero.MapFaction.Color, Hero.MainHero.MapFaction.Color2, Hero.MainHero.ClanBanner);
 		base.Mission.Teams.Add(BattleSideEnum.Attacker, uint.MaxValue, uint.MaxValue, Hero.MainHero.ClanBanner);
 		base.Mission.PlayerTeam = base.Mission.Teams.Defender;
-		((ReadOnlyCollection<Team>)(object)base.Mission.Teams)[0].SetIsEnemyOf(((ReadOnlyCollection<Team>)(object)base.Mission.Teams)[1], isEnemyOf: true);
+		base.Mission.Teams[0].SetIsEnemyOf(base.Mission.Teams[1], isEnemyOf: true);
 	}
 
 	private void DeactivateOtherTournamentSets()
@@ -116,7 +116,7 @@ internal class CustomArenaTrainingMissionController : MissionLogic
 		Agent agent = mission.SpawnAgent(agentBuildData2.InitialDirection(in vec).NoHorses(!_spawnBothSideWithHorses).Equipment(_requireCivilianEquipment ? WithSparingWeapons(character.FirstCivilianEquipment, character.IsHero) : WithSparingWeapons(character.FirstBattleEquipment, character.IsHero))
 			.TroopOrigin(new SimpleAgentOrigin(character)), false);
 		agent.FadeIn();
-		if (team == ((ReadOnlyCollection<Team>)(object)base.Mission.Teams)[0])
+		if (team == base.Mission.Teams[0])
 		{
 			agent.Controller = Agent.ControllerType.Player;
 		}
@@ -234,7 +234,7 @@ internal class CustomArenaTrainingMissionController : MissionLogic
 		{
 			HitCharacter.HeroObject.HitPoints = (int)affectedAgent.Health;
 		}
-		if (affectorAgent.Team == ((ReadOnlyCollection<Team>)(object)base.Mission.Teams)[0])
+		if (affectorAgent.Team == base.Mission.Teams[0])
 		{
 			_xp += 10;
 			Hero.MainHero.AddSkillXp(DefaultSkills.Leadership, 20 + Hero.MainHero.GetSkillValue(DefaultSkills.Leadership));
@@ -286,7 +286,7 @@ internal class CustomArenaTrainingMissionController : MissionLogic
 				Test.followingHero.PartyBelongedTo.MemberRoster.WoundTroop(killedCharacter);
 			}
 		}
-		if (affectorAgent.Team == ((ReadOnlyCollection<Team>)(object)base.Mission.Teams)[0])
+		if (affectorAgent.Team == base.Mission.Teams[0])
 		{
 			Hero.MainHero.AddSkillXp(DefaultSkills.Leadership, 50 + 3 * Hero.MainHero.GetSkillValue(DefaultSkills.Leadership));
 			_xp += 40;
@@ -303,7 +303,7 @@ internal class CustomArenaTrainingMissionController : MissionLogic
 		}
 		if (!TrainingDone())
 		{
-			spawnTroop(affectedAgent.Team == ((ReadOnlyCollection<Team>)(object)base.Mission.Teams)[0]);
+			spawnTroop(affectedAgent.Team == base.Mission.Teams[0]);
 		}
 	}
 
