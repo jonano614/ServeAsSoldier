@@ -9,10 +9,18 @@
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup />
-  <ItemGroup />
   <ItemGroup>
+    <Reference Include="SandBox.View">
+      <HintPath>D:\Programs\Steam\steamapps\common\Mount &amp; Blade II Bannerlord\Modules\SandBox\bin\Win64_Shipping_Client\SandBox.View.dll</HintPath>
+    </Reference>
+    <Reference Include="SandBox.ViewModelCollection">
+      <HintPath>D:\Programs\Steam\steamapps\common\Mount &amp; Blade II Bannerlord\Modules\SandBox\bin\Win64_Shipping_Client\SandBox.ViewModelCollection.dll</HintPath>
+    </Reference>
     <Reference Include="TaleWorlds.CampaignSystem">
       <HintPath>D:\Programs\Steam\steamapps\common\Mount &amp; Blade II Bannerlord\bin\Win64_Shipping_Client\TaleWorlds.CampaignSystem.dll</HintPath>
+    </Reference>
+    <Reference Include="TaleWorlds.DotNet">
+      <HintPath>D:\Programs\Steam\steamapps\common\Mount &amp; Blade II Bannerlord\bin\Win64_Shipping_Client\TaleWorlds.DotNet.dll</HintPath>
     </Reference>
     <Reference Include="TaleWorlds.Library">
       <HintPath>D:\Programs\Steam\steamapps\common\Mount &amp; Blade II Bannerlord\bin\Win64_Shipping_Client\TaleWorlds.Library.dll</HintPath>
@@ -42,6 +50,12 @@
     <Reference Include="TaleWorlds.GauntletUI.Data">
       <HintPath>D:\Programs\Steam\steamapps\common\Mount &amp; Blade II Bannerlord\bin\Win64_Shipping_Client\TaleWorlds.GauntletUI.Data.dll</HintPath>
     </Reference>
+    <Reference Include="TaleWorlds.MountAndBlade.View">
+      <HintPath>D:\Programs\Steam\steamapps\common\Mount &amp; Blade II Bannerlord\Modules\Native\bin\Win64_Shipping_Client\TaleWorlds.MountAndBlade.View.dll</HintPath>
+    </Reference>
+    <Reference Include="TaleWorlds.PlayerServices">
+      <HintPath>D:\Programs\Steam\steamapps\common\Mount &amp; Blade II Bannerlord\bin\Win64_Shipping_Client\TaleWorlds.PlayerServices.dll</HintPath>
+    </Reference>
     <Reference Include="TaleWorlds.ScreenSystem">
       <HintPath>D:\Programs\Steam\steamapps\common\Mount &amp; Blade II Bannerlord\bin\Win64_Shipping_Client\TaleWorlds.ScreenSystem.dll</HintPath>
     </Reference>
@@ -52,7 +66,6 @@
     <Reference Include="TaleWorlds.Engine">
       <HintPath>D:\Programs\Steam\steamapps\common\Mount &amp; Blade II Bannerlord\bin\Win64_Shipping_Client\TaleWorlds.Engine.dll</HintPath>
     </Reference>
-    <Reference Include="SandBox.ViewModelCollection" />
     <Reference Include="TaleWorlds.SaveSystem">
       <HintPath>D:\Programs\Steam\steamapps\common\Mount &amp; Blade II Bannerlord\bin\Win64_Shipping_Client\TaleWorlds.SaveSystem.dll</HintPath>
     </Reference>
@@ -62,7 +75,5 @@
     <Reference Include="TaleWorlds.InputSystem">
       <HintPath>D:\Programs\Steam\steamapps\common\Mount &amp; Blade II Bannerlord\bin\Win64_Shipping_Client\TaleWorlds.InputSystem.dll</HintPath>
     </Reference>
-    <Reference Include="SandBox.View" />
-    <Reference Include="TaleWorlds.MountAndBlade.View" />
   </ItemGroup>
 </Project>
