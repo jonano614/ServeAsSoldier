@@ -107,7 +107,7 @@ public class RivalGangEvent : CampaignBehaviorBase
 
 	private void OnSettlementEntered(MobileParty party, Settlement settlement, Hero hero)
 	{
-		if (Test.followingHero != null && hero == Test.followingHero && settlement.IsTown && gangLeaders(settlement).Count > 1 && !Hero.MainHero.IsWounded && !Test.OngoinEvent && Test.print(MBRandom.RandomInt(100)) < 5)
+		/*if (Test.followingHero != null && hero == Test.followingHero && settlement.IsTown && gangLeaders(settlement).Count > 1 && !Hero.MainHero.IsWounded && !Test.OngoinEvent && Test.print(MBRandom.RandomInt(100)) < 5)
 		{
 			Test.OngoinEvent = true;
 			EventSettlement = settlement;
@@ -119,7 +119,7 @@ public class RivalGangEvent : CampaignBehaviorBase
 			leaders.Remove(GangLeader1);
 			GangLeader2 = leaders.GetRandomElement();
 			CampaignMapConversation.OpenConversation(new ConversationCharacterData(CharacterObject.PlayerCharacter, PartyBase.MainParty, false, false, false, false, false), new ConversationCharacterData(GangLeader1.CharacterObject, (PartyBase)null, false, false, false, false, false));
-		}
+		}*/
 	}
 
 	private DialogFlow CreateDialog()
@@ -159,17 +159,17 @@ public class RivalGangEvent : CampaignBehaviorBase
 
 	private void GangFight()
 	{
-		int upgradeLevel = EventSettlement.Town.GetWallLevel();
+		/*int upgradeLevel = EventSettlement.Town.GetWallLevel();
 		int size = MBRandom.RandomInt(15, 25);
 		MobileParty.MainParty.MemberRoster.AddToCounts(EventSettlement.Culture.GangleaderBodyguard, size);
 		gangParty = CreateGangParty(GangLeader2, size + 5 + MobileParty.MainParty.MemberRoster.TotalHeroes);
 		MobileParty.MainParty.IsActive = true;
 		Test.disable_XP = true;
 		PlayerEncounter.RestartPlayerEncounter(gangParty.Party, PartyBase.MainParty, forcePlayerOutFromSettlement: false);
-		PlayerEncounter.Current.ForceAlleyFight = true;
+		//PlayerEncounter.Current.ForceAlleyFight = true;
 		PlayerEncounter.StartBattle();
-		CampaignMission.OpenAlleyFightMission(EventSettlement.LocationComplex.GetLocationWithId("center").GetSceneName(upgradeLevel), upgradeLevel);
-		GameMenu.ActivateGameMenu("gang_war");
+		//CampaignMission.OpenAlleyFightMission(EventSettlement.LocationComplex.GetLocationWithId("center").GetSceneName(upgradeLevel), upgradeLevel);
+		GameMenu.ActivateGameMenu("gang_war");*/
 	}
 
 	private MobileParty CreateGangParty(Hero owner, int size)
