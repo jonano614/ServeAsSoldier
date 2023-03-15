@@ -71,7 +71,7 @@ internal class CustomArenaBattleMissionController : MissionLogic
 		List<InquiryElement> inquiryElements = new List<InquiryElement>();
 		TextObject text2 = new TextObject("{=FLT0000180}Melee");
 		TextObject text3 = new TextObject("{=FLT0000181}Bow");
-		TextObject text4 = new TextObject("{=FLT0000181}Crossbow");
+		TextObject text4 = new TextObject("{=FLT0000290}Crossbow");
 		TextObject text5 = new TextObject("{=FLT0000182}Cavalry");
 		TextObject text6 = new TextObject("{=FLT0000204}Throwing");
 		inquiryElements.Add(new InquiryElement("m", text2.ToString(), null, isEnabled: true, null));

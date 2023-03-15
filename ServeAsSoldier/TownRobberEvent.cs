@@ -159,7 +159,7 @@ public class TownRobberEvent : CampaignBehaviorBase
 				Test.conversation_type = null;
 			})
 			.BeginPlayerOptions()
-			.PlayerOption("Lead the way!")
+			.PlayerOption("{=FLT0000303}Lead the way!")
 			.CloseDialog()
 			.Consequence(delegate
 			{

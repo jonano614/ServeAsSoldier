@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ItemModifiers>
+	<ItemModifier id="sas_horse" modifier_group="ItemModifierGroup.horse" loot_drop_score="0" production_drop_score="0" name="{=FLT0000233}State Issued {ITEMNAME}" horse_speed="+0" maneuver="+0" charge_damage="+0" price_factor="0.01" />
+    <ItemModifier id="sas_weapon" modifier_group="ItemModifierGroup.sword" loot_drop_score="0" production_drop_score="0" name="{=FLT0000233}State Issued {ITEMNAME}" damage="+0" price_factor="0.01" />
+    <ItemModifier id="sas_armor" modifier_group="ItemModifierGroup.plate" loot_drop_score="0" production_drop_score="0" name="{=FLT0000233}State Issued {ITEMNAME}" armor="+0" price_factor="0.01" />
+</ItemModifiers>

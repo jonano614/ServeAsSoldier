@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<ArrayOfRecruit xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<!-- Eagle Rising -->
+	<Recruit Id="cla_rome_infantry_1"></Recruit>
+	<Recruit Id="cla_rome_auxilia_recruit"></Recruit>
+	<Recruit Id="cla_rome_auxilia_cavalry_3"></Recruit>
+	<Recruit Id="cla_rome_infantry_evocatus_4"></Recruit>
+	<Recruit Id="cla_rome_officer_optio_5"></Recruit>
+	<Recruit Id="cla_rome_officer_centurion_6"></Recruit>
+	<Recruit Id="cla_rome_officer_centurion_7"></Recruit>
+	<Recruit Id="cla_rome_praetorian_6"></Recruit>
+	<Recruit Id="cla_rome_standard_bearer_4"></Recruit>
+	<Recruit Id="cla_rome_standard_bearer_5"></Recruit>
+	<Recruit Id="cla_rome_standard_bearer_6"></Recruit>
+	<Recruit Id="cla_rome_infantry_engineer_3"></Recruit>
+
+	<Recruit Id="cla_carthage_numidian_skirmisher_1"></Recruit>
+	<Recruit Id="cla_carthage_machairaphoroi_libyan_1"></Recruit>
+	<Recruit Id="cla_carthage_hoplite_phoenician_1"></Recruit>
+	<Recruit Id="cla_iberian_caetrati_2"></Recruit>
+	<Recruit Id="cla_carthage_sacred_phoenician_3"></Recruit>
+
+	<Recruit Id="cla_carthage_standard_phoenician_5"></Recruit>
+	<Recruit Id="cla_carthage_standard_phoenician_6"></Recruit>
+	<Recruit Id="cla_carthage_officer_phoenician_5"></Recruit>
+	<Recruit Id="cla_carthage_officer_phoenician_6"></Recruit>
+
+	<Recruit Id="cla_scythia_cavalry_elite_4"></Recruit>
+	<Recruit Id="cla_scythia_bodyguard_6"></Recruit>
+	<Recruit Id="cla_scythia_cavalry_leader_7"></Recruit>
+	<Recruit Id="cla_scythia_infantry_banner_5"></Recruit>
+	<Recruit Id="cla_scythia_cavalry_banner_5"></Recruit>
+
+	<Recruit Id="cla_dacia_bodyguard_6"></Recruit>
+	<Recruit Id="cla_dacia_infantry_officer_6"></Recruit>
+	<Recruit Id="cla_dacia_standard_draco_6"></Recruit>
+
+	<Recruit Id="cla_celt_bodyguard_6"></Recruit>
+	<Recruit Id="cla_celt_infantry_officer_6"></Recruit>
+	<Recruit Id="cla_celt_standard_carnyx_6"></Recruit>
+	<Recruit Id="cla_celt_standard_skull_5"></Recruit>
+</ArrayOfRecruit>

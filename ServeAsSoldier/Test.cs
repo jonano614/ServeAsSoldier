@@ -1929,14 +1929,14 @@ public class Test : CampaignBehaviorBase
 
 	private static DialogFlow CreateWeaponsmithDialog()
 	{
-		TextObject textObject = new TextObject("Here you go!");
-		return DialogFlow.CreateDialogFlow("start", 125).NpcLine("What do you need?").Condition(() => conversation_type == "weaponsmith")
+		TextObject textObject = new TextObject("{=FLT0000304}Here you go!");
+		return DialogFlow.CreateDialogFlow("start", 125).NpcLine("{=FLT0000305}What do you need?").Condition(() => conversation_type == "weaponsmith")
 			.Consequence(delegate
 			{
 				conversation_type = null;
 			})
 			.BeginPlayerOptions()
-			.PlayerOption("A new weapon (slot 1)")
+			.PlayerOption("{=FLT0000291}A new weapon (slot 1)")
 			.NpcLine(textObject)
 			.Consequence(delegate
 			{
@@ -1974,7 +1974,7 @@ public class Test : CampaignBehaviorBase
 				EquipmentSelectorBehavior.CreateVMLayer(list22, "Wep0");
 				Campaign.Current.TimeControlMode = CampaignTimeControlMode.Stop;
 			})
-			.PlayerOption("A new weapon (slot 2)")
+			.PlayerOption("{=FLT0000292}A new weapon (slot 2)")
 			.NpcLine(textObject)
 			.Consequence(delegate
 			{
@@ -2012,7 +2012,7 @@ public class Test : CampaignBehaviorBase
 				EquipmentSelectorBehavior.CreateVMLayer(list20, "Wep1");
 				Campaign.Current.TimeControlMode = CampaignTimeControlMode.Stop;
 			})
-			.PlayerOption("A new weapon (slot 3)")
+			.PlayerOption("{=FLT0000293}A new weapon (slot 3)")
 			.NpcLine(textObject)
 			.Consequence(delegate
 			{
@@ -2050,7 +2050,7 @@ public class Test : CampaignBehaviorBase
 				EquipmentSelectorBehavior.CreateVMLayer(list18, "Wep2");
 				Campaign.Current.TimeControlMode = CampaignTimeControlMode.Stop;
 			})
-			.PlayerOption("A new weapon (slot 4)")
+			.PlayerOption("{=FLT0000294}A new weapon (slot 4)")
 			.NpcLine(textObject)
 			.Consequence(delegate
 			{
@@ -2088,7 +2088,7 @@ public class Test : CampaignBehaviorBase
 				EquipmentSelectorBehavior.CreateVMLayer(list16, "Wep3");
 				Campaign.Current.TimeControlMode = CampaignTimeControlMode.Stop;
 			})
-			.PlayerOption("A new hemlet")
+			.PlayerOption("{=FLT0000295}A new hemlet")
 			.NpcLine(textObject)
 			.Consequence(delegate
 			{
@@ -2114,7 +2114,7 @@ public class Test : CampaignBehaviorBase
 				EquipmentSelectorBehavior.CreateVMLayer(list14, "Head");
 				Campaign.Current.TimeControlMode = CampaignTimeControlMode.Stop;
 			})
-			.PlayerOption("A new cape")
+			.PlayerOption("{=FLT0000296}A new cape")
 			.NpcLine(textObject)
 			.Consequence(delegate
 			{
@@ -2140,7 +2140,7 @@ public class Test : CampaignBehaviorBase
 				EquipmentSelectorBehavior.CreateVMLayer(list12, "Cape");
 				Campaign.Current.TimeControlMode = CampaignTimeControlMode.Stop;
 			})
-			.PlayerOption("A new body armour")
+			.PlayerOption("{=FLT0000297}A new body armour")
 			.NpcLine(textObject)
 			.Consequence(delegate
 			{
@@ -2166,7 +2166,7 @@ public class Test : CampaignBehaviorBase
 				EquipmentSelectorBehavior.CreateVMLayer(list10, "Body");
 				Campaign.Current.TimeControlMode = CampaignTimeControlMode.Stop;
 			})
-			.PlayerOption("New gloves")
+			.PlayerOption("{=FLT0000298}New gloves")
 			.NpcLine(textObject)
 			.Consequence(delegate
 			{
@@ -2192,7 +2192,7 @@ public class Test : CampaignBehaviorBase
 				EquipmentSelectorBehavior.CreateVMLayer(list8, "Gloves");
 				Campaign.Current.TimeControlMode = CampaignTimeControlMode.Stop;
 			})
-			.PlayerOption("New boots")
+			.PlayerOption("{=FLT0000299}New boots")
 			.NpcLine(textObject)
 			.Consequence(delegate
 			{
@@ -2218,7 +2218,7 @@ public class Test : CampaignBehaviorBase
 				EquipmentSelectorBehavior.CreateVMLayer(list6, "Leg");
 				Campaign.Current.TimeControlMode = CampaignTimeControlMode.Stop;
 			})
-			.PlayerOption("A new horse")
+			.PlayerOption("{=FLT0000300}A new horse")
 			.NpcLine(textObject)
 			.Consequence(delegate
 			{
@@ -2244,7 +2244,7 @@ public class Test : CampaignBehaviorBase
 				EquipmentSelectorBehavior.CreateVMLayer(list4, "Horse");
 				Campaign.Current.TimeControlMode = CampaignTimeControlMode.Stop;
 			})
-			.PlayerOption("A new horse harness")
+			.PlayerOption("{=FLT0000301}A new horse harness")
 			.NpcLine(textObject)
 			.Consequence(delegate
 			{
@@ -2270,7 +2270,7 @@ public class Test : CampaignBehaviorBase
 				EquipmentSelectorBehavior.CreateVMLayer(list2, "Harness");
 				Campaign.Current.TimeControlMode = CampaignTimeControlMode.Stop;
 			})
-			.PlayerOption("Never mind")
+			.PlayerOption("{=FLT0000302}Never mind")
 			.CloseDialog()
 			.EndPlayerOptions()
 			.CloseDialog();

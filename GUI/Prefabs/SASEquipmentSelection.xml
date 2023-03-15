@@ -1,0 +1,93 @@
+<Prefab>
+	<Constants>
+		<Constant Name="Encyclopedia.Frame.Width" BrushLayer="Default" BrushName="Encyclopedia.Frame" BrushValueType="Width" />
+		<Constant Name="Encyclopedia.Frame.Height" BrushLayer="Default" BrushName="Encyclopedia.Frame" BrushValueType="Height" />
+
+		<Constant Name="Top.Height" Value="240" />
+		<Constant Name="Top.VerticalDivider.Height" Value="!Top.Height" />
+		<Constant Name="Top.VerticalDivider.Width" Value="15" />
+		<Constant Name="Top.VerticalDivider.Thin.Width" Value="7" />
+
+		<Constant Name="Reference.AlphaFactor" Value="0" />
+	</Constants>
+	<Window>
+		<Widget WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" Sprite="BlankWhiteSquare_9" Color="#000000CC">
+			<Standard.PopupCloseButton HorizontalAlignment="Center" VerticalAlignment="Center" MarginTop="940" Command.Click="Close" Parameter.ButtonText="Leave" />
+			<Children>
+
+				<!--Background-->
+				<BrushWidget Id="TownManagementPopup" DoNotAcceptEvents="true" WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedWidth="!Encyclopedia.Frame.Width" SuggestedHeight="!Encyclopedia.Frame.Height" HorizontalAlignment="Center" VerticalAlignment="Center" MarginBottom="35" Brush="Encyclopedia.Frame" ReserveManagementPopup="ReservePopup">
+					<Children>
+						<!--title-->
+						<Widget WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedWidth="720" SuggestedHeight="155" HorizontalAlignment="Center" VerticalAlignment="Top" PositionXOffset="6" PositionYOffset="-18" Sprite="StdAssets\tabbar_popup" IsDisabled="true">
+							<Children>
+								<RichTextWidget WidthSizePolicy="CoverChildren" HeightSizePolicy="CoverChildren" HorizontalAlignment="Center" VerticalAlignment="Center" PositionYOffset="-25" Brush="Recruitment.Popup.Title.Text" Brush.FontSize="46" IsDisabled="true" Text="Select Equipment" />
+							</Children>
+						</Widget>
+
+						<ScrollablePanel WidthSizePolicy="Fixed" HeightSizePolicy="StretchToParent" SuggestedWidth="1090" MarginTop="180" MarginBottom="50" MarginLeft ="380" MouseScrollAxis="Vertical" ClipRect="ListClipRect" InnerPanel="ListClipRect\List" VerticalScrollbar="..\RightSideScrollbar" AutoHideScrollBars="false">
+							<Children>
+								<Widget Id="ListClipRect" WidthSizePolicy="StretchToParent" HeightSizePolicy="StretchToParent" ClipContents="true">
+									<Children>
+										<ListPanel Id="List" DataSource="{Rows}" WidthSizePolicy="CoverChildren" HeightSizePolicy="CoverChildren" StackLayout.LayoutMethod="VerticalBottomToTop">
+											<ItemTemplate>
+												<SASEquipmentCardRow ButtonType="Radio" />
+											</ItemTemplate>
+										</ListPanel>
+									</Children>
+								</Widget>
+
+							</Children>
+						</ScrollablePanel>
+
+						<CharacterTableauWidget DataSource="{UnitCharacter}" WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedWidth="400" SuggestedHeight="700"	MarginLeft ="0" MarginTop="235" HorizontalAlignment="Left" VerticalAlignment="Top"	BodyProperties="@BodyProperties" IsFemale="@IsFemale" EquipmentCode="@EquipmentCode" CharStringId="@CharStringId" StanceIndex="@StanceIndex" BannerCodeText="@BannerCodeText" MountCreationKey="@MountCreationKey" IsEnabled="false" ArmorColor1="@ArmorColor1"	ArmorColor2="@ArmorColor2"/>
+
+						<Panel DataSource="{Name}" WidthSizePolicy="Fixed" HeightSizePolicy="CoverChildren" MarginTop="340" MarginLeft="0"  SuggestedWidth="410">
+							<ItemTemplate>
+								<RichTextWidget WidthSizePolicy="CoverChildren" HeightSizePolicy="CoverChildren" HorizontalAlignment="Center" Brush="Recruitment.Popup.Title.Text" Brush.FontSize="36" Text="@Item"/>
+							</ItemTemplate>
+						</Panel>
+
+						<!-- Switch Button -->
+						<ButtonWidget WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedHeight="80" SuggestedWidth="140" Brush="ButtonBrush2" Command.Click="Switch"  MarginTop="250" MarginLeft="135" IsEnabled="true">
+							<Children>
+								<RichTextWidget DoNotAcceptEvents="true" WidthSizePolicy="CoverChildren" HeightSizePolicy="CoverChildren" HorizontalAlignment="Center" VerticalAlignment="Center" Brush="OverlayPopup.ButtonText" Brush.FontSize="40" Text="Switch" />
+							</Children>
+						</ButtonWidget>
+						
+                        <NavigatableListPanel DataSource="{WeaponsList}" WidthSizePolicy="CoverChildren" HeightSizePolicy="CoverChildren" StackLayout.LayoutMethod="VerticalBottomToTop" MarginTop="500"  MarginLeft="20">
+							<ItemTemplate>
+								<EquipmentTypeVisualBrushWidget WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedWidth="35" SuggestedHeight="35" MarginLeft="15" MarginBottom="5" Brush="EquipmentType.Image" Command.HoverBegin="ExecuteBeginHint" Command.HoverEnd="ExecuteEndHint" IsVisible="@HasItem" Type="@Type" />
+                              </ItemTemplate>
+                        </NavigatableListPanel>
+                        <NavigatableListPanel Id="RightEquipmentList" DataSource="{ArmorsList}" WidthSizePolicy="CoverChildren" HeightSizePolicy="CoverChildren" StackLayout.LayoutMethod="VerticalBottomToTop" MarginTop="500"  MarginLeft="350">
+							<ItemTemplate>
+								<EquipmentTypeVisualBrushWidget WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedWidth="35" SuggestedHeight="35" MarginRight="15" MarginBottom="5" Brush="EquipmentType.Image" Command.HoverBegin="ExecuteBeginHint" Command.HoverEnd="ExecuteEndHint" IsVisible="@HasItem" Type="@Type" />
+                            </ItemTemplate>
+                        </NavigatableListPanel>
+
+						<!-- Copy Button -->
+						<ButtonWidget WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedHeight="140" SuggestedWidth="360" Brush="ButtonBrush2" Command.Click="Copy"  MarginTop="50" HorizontalAlignment="Center" IsEnabled="true">
+							<Children>
+								<RichTextWidget DoNotAcceptEvents="true" WidthSizePolicy="CoverChildren" HeightSizePolicy="CoverChildren" HorizontalAlignment="Center" VerticalAlignment="Center" Brush="OverlayPopup.ButtonText" Brush.FontSize="40" Text="Copy Equipment" />
+							</Children>
+						</ButtonWidget>
+
+						<ScrollbarWidget HeightSizePolicy="Fixed" WidthSizePolicy="CoverChildren" Id="RightSideScrollbar" MinValue="0" MaxValue="100" MarginRight="20" MarginTop="180" AlignmentAxis="Vertical" HorizontalAlignment="Right"  SuggestedHeight="750" Handle="RightSideScrollbarHandle" UpdateChildrenStates="true">
+							<Children>
+								<ImageWidget HeightSizePolicy="StretchToParent" WidthSizePolicy="Fixed" SuggestedWidth="2" VerticalAlignment="Center" Brush="Encyclopedia.Scrollbar.Flat.Bed"/>
+								<ImageWidget Id="RightSideScrollbarHandle" WidthSizePolicy="Fixed" HeightSizePolicy="Fixed" SuggestedWidth="8" SuggestedHeight="50" VerticalAlignment="Top" Brush="Encyclopedia.Scrollbar.Flat.Handle"/>
+							</Children>
+						</ScrollbarWidget>
+					</Children>
+				</BrushWidget>
+				
+				
+				
+				<!--Close Encyclopedia Button-->
+				<ButtonWidget Command.Click="Close" HeightSizePolicy ="Fixed" WidthSizePolicy="Fixed" SuggestedHeight="100" SuggestedWidth="100" VerticalAlignment="Center" HorizontalAlignment="Center" PositionYOffset="-465" MarginLeft="1440" Brush="Popup.CloseButton"/>
+
+			</Children>
+		</Widget>
+	</Window>
+</Prefab>
