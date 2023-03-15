@@ -237,7 +237,7 @@
 	<string id="FLT0000230" text="{HERO} is no longer employeed by the {CLAN}" />
 	<string id="FLT0000231" text="Defect to other side" />
 	<string id="FLT0000232" text="Can only serve lords part of a kingdom" />
-	<string id="FLT0000233" text="State Issued" />
+	<string id="FLT0000233" text="State Issued {ITEMNAME}" />
 	<string id="FLT0000234" text="I can use someone like you in my retinue." />
 	<string id="FLT0000235" text="Sorry but I am happy with serving lord {LORD}." />
 	<string id="FLT0000236" text="Sorry, but you and I simply dont get along." />
@@ -302,5 +302,6 @@
 	<string id="FLT0000305" text="What do you need?" />
 	<string id="FLT0000306" text="Go to the tavern" />
 	<string id="FLT0000307" text="Return to army camp" />
+	<string id="FLT0000308" text="Dismount from horse first before joining siege" />
   </strings>
 </base>

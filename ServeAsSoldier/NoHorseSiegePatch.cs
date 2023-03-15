@@ -17,7 +17,7 @@ internal class NoHorseSiegePatch
 	{
 		if (Test.followingHero != null && Test.followingHero.PartyBelongedTo.SiegeEvent != null && Hero.MainHero.CharacterObject.Equipment[EquipmentIndex.ArmorItemEndSlot].Item != null && ContainsParty(Test.followingHero.PartyBelongedTo.MapEvent.PartiesOnSide(BattleSideEnum.Attacker), Test.followingHero.PartyBelongedTo))
 		{
-			InformationManager.DisplayMessage(new InformationMessage("Dismount from horse first before joining siege"));
+			InformationManager.DisplayMessage(new InformationMessage("{=FLT0000308}Dismount from horse first before joining siege"));
 			return false;
 		}
 		return true;
