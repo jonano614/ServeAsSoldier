@@ -300,5 +300,7 @@
 	<string id="FLT0000303" text="Lead the way!" />
 	<string id="FLT0000304" text="Here you go!" />
 	<string id="FLT0000305" text="What do you need?" />
+	<string id="FLT0000306" text="Go to the tavern" />
+	<string id="FLT0000307" text="Return to army camp" />
   </strings>
 </base>

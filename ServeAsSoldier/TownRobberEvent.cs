@@ -188,8 +188,8 @@ public class TownRobberEvent : CampaignBehaviorBase
 		PlayerEncounter.RestartPlayerEncounter(GangParty.Party, PartyBase.MainParty, forcePlayerOutFromSettlement: false);
 		//PlayerEncounter.Current.ForceAlleyFight = true;
 		PlayerEncounter.StartBattle();
-        Location locationWithId = LocationComplex.Current.GetLocationWithId("center");
-        CampaignMission.OpenAlleyFightMission(EventSettlement.LocationComplex.GetLocationWithId("center").GetSceneName(upgradeLevel), upgradeLevel, locationWithId,
+        Location locationWithId = EventSettlement.LocationComplex.GetLocationWithId("center");
+        CampaignMission.OpenAlleyFightMission(locationWithId.GetSceneName(upgradeLevel), upgradeLevel, locationWithId,
             MobileParty.MainParty.MemberRoster, gangParty.MemberRoster);
         GameMenu.ActivateGameMenu("robbery_aftermath");
 	}

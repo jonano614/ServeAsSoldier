@@ -977,7 +977,7 @@ public class Test : CampaignBehaviorBase
 			LeaveLordPartyAction(keepgear: false);
 			GameMenu.ExitToLast();
 		}, true, -1, false);
-		campaignStarter.AddGameMenuOption("party_wait", "party_wait_visit_tavern", "Go to the tavern", (GameMenuOption.OnConditionDelegate)delegate(MenuCallbackArgs args)
+		campaignStarter.AddGameMenuOption("party_wait", "party_wait_visit_tavern", "{=FLT0000306}Go to the tavern", (GameMenuOption.OnConditionDelegate)delegate(MenuCallbackArgs args)
 		{
 			args.optionLeaveType = GameMenuOption.LeaveType.Submenu;
 			return followingHero != null && followingHero.PartyBelongedTo != null && followingHero.PartyBelongedTo.CurrentSettlement != null && followingHero.PartyBelongedTo.CurrentSettlement.IsTown;
@@ -986,7 +986,8 @@ public class Test : CampaignBehaviorBase
 			EnterSettlementAction.ApplyForParty(MobileParty.MainParty, followingHero.PartyBelongedTo.CurrentSettlement);
 			GameMenu.SwitchToMenu("town_backstreet");
 		}, true, -1, false);
-		campaignStarter.AddGameMenuOption("town_backstreet", "party_wait_return_tavern", "return to army camp", (GameMenuOption.OnConditionDelegate)delegate(MenuCallbackArgs args)
+		TextObject returnToArmyText = new TextObject("{=FLT0000307}Return to army camp");
+		campaignStarter.AddGameMenuOption("town_backstreet", "party_wait_return_tavern", returnToArmyText.ToString(), (GameMenuOption.OnConditionDelegate)delegate(MenuCallbackArgs args)
 		{
 			args.optionLeaveType = GameMenuOption.LeaveType.Leave;
 			return followingHero != null;
@@ -994,7 +995,7 @@ public class Test : CampaignBehaviorBase
 		{
 			GameMenu.ActivateGameMenu("party_wait");
 		}, true, -1, false);
-		campaignStarter.AddGameMenuOption("village_wait_menus", "party_wait_return_village_wait", "return to army camp", (GameMenuOption.OnConditionDelegate)delegate(MenuCallbackArgs args)
+		campaignStarter.AddGameMenuOption("village_wait_menus", "party_wait_return_village_wait", returnToArmyText.ToString(), (GameMenuOption.OnConditionDelegate)delegate(MenuCallbackArgs args)
 		{
 			args.optionLeaveType = GameMenuOption.LeaveType.Leave;
 			return followingHero != null;
@@ -1002,7 +1003,7 @@ public class Test : CampaignBehaviorBase
 		{
 			GameMenu.ActivateGameMenu("party_wait");
 		}, true, -1, false);
-		campaignStarter.AddGameMenuOption("village_looted", "party_wait_return_village_looted", "return to army camp", (GameMenuOption.OnConditionDelegate)delegate(MenuCallbackArgs args)
+		campaignStarter.AddGameMenuOption("village_looted", "party_wait_return_village_looted", returnToArmyText.ToString(), (GameMenuOption.OnConditionDelegate)delegate(MenuCallbackArgs args)
 		{
 			args.optionLeaveType = GameMenuOption.LeaveType.Leave;
 			return followingHero != null;
@@ -1010,7 +1011,7 @@ public class Test : CampaignBehaviorBase
 		{
 			GameMenu.ActivateGameMenu("party_wait");
 		}, true, -1, false);
-		campaignStarter.AddGameMenuOption("castle_dungeon", "party_wait_return_castle_dungeon", "return to army camp", (GameMenuOption.OnConditionDelegate)delegate(MenuCallbackArgs args)
+		campaignStarter.AddGameMenuOption("castle_dungeon", "party_wait_return_castle_dungeon", returnToArmyText.ToString(), (GameMenuOption.OnConditionDelegate)delegate(MenuCallbackArgs args)
 		{
 			args.optionLeaveType = GameMenuOption.LeaveType.Leave;
 			return followingHero != null;
@@ -1018,7 +1019,7 @@ public class Test : CampaignBehaviorBase
 		{
 			GameMenu.ActivateGameMenu("party_wait");
 		}, true, -1, false);
-		campaignStarter.AddGameMenuOption("town_wait_menus", "party_wait_return_town_wait", "return to army camp", (GameMenuOption.OnConditionDelegate)delegate(MenuCallbackArgs args)
+		campaignStarter.AddGameMenuOption("town_wait_menus", "party_wait_return_town_wait", returnToArmyText.ToString(), (GameMenuOption.OnConditionDelegate)delegate(MenuCallbackArgs args)
 		{
 			args.optionLeaveType = GameMenuOption.LeaveType.Leave;
 			return followingHero != null;
@@ -1026,7 +1027,7 @@ public class Test : CampaignBehaviorBase
 		{
 			GameMenu.ActivateGameMenu("party_wait");
 		}, true, -1, false);
-		campaignStarter.AddGameMenuOption("town_arena", "party_wait_return_town_arena", "return to army camp", (GameMenuOption.OnConditionDelegate)delegate(MenuCallbackArgs args)
+		campaignStarter.AddGameMenuOption("town_arena", "party_wait_return_town_arena", returnToArmyText.ToString(), (GameMenuOption.OnConditionDelegate)delegate(MenuCallbackArgs args)
 		{
 			args.optionLeaveType = GameMenuOption.LeaveType.Leave;
 			return followingHero != null;
@@ -1034,7 +1035,7 @@ public class Test : CampaignBehaviorBase
 		{
 			GameMenu.ActivateGameMenu("party_wait");
 		}, true, -1, false);
-		campaignStarter.AddGameMenuOption("town_enemy_town_keep", "party_wait_return_town_enemy_town_keep", "return to army camp", (GameMenuOption.OnConditionDelegate)delegate(MenuCallbackArgs args)
+		campaignStarter.AddGameMenuOption("town_enemy_town_keep", "party_wait_return_town_enemy_town_keep", returnToArmyText.ToString(), (GameMenuOption.OnConditionDelegate)delegate(MenuCallbackArgs args)
 		{
 			args.optionLeaveType = GameMenuOption.LeaveType.Leave;
 			return followingHero != null;
@@ -1042,7 +1043,7 @@ public class Test : CampaignBehaviorBase
 		{
 			GameMenu.ActivateGameMenu("party_wait");
 		}, true, -1, false);
-		campaignStarter.AddGameMenuOption("town_keep_bribe", "party_wait_return_town_keep_bribe", "return to army camp", (GameMenuOption.OnConditionDelegate)delegate(MenuCallbackArgs args)
+		campaignStarter.AddGameMenuOption("town_keep_bribe", "party_wait_return_town_keep_bribe", returnToArmyText.ToString(), (GameMenuOption.OnConditionDelegate)delegate(MenuCallbackArgs args)
 		{
 			args.optionLeaveType = GameMenuOption.LeaveType.Leave;
 			return followingHero != null;
@@ -1050,7 +1051,7 @@ public class Test : CampaignBehaviorBase
 		{
 			GameMenu.ActivateGameMenu("party_wait");
 		}, true, -1, false);
-		campaignStarter.AddGameMenuOption("town_keep_dungeon", "party_wait_return_town_keep_dungeon", "return to army camp", (GameMenuOption.OnConditionDelegate)delegate(MenuCallbackArgs args)
+		campaignStarter.AddGameMenuOption("town_keep_dungeon", "party_wait_return_town_keep_dungeon", returnToArmyText.ToString(), (GameMenuOption.OnConditionDelegate)delegate(MenuCallbackArgs args)
 		{
 			args.optionLeaveType = GameMenuOption.LeaveType.Leave;
 			return followingHero != null;
@@ -1058,7 +1059,7 @@ public class Test : CampaignBehaviorBase
 		{
 			GameMenu.ActivateGameMenu("party_wait");
 		}, true, -1, false);
-		campaignStarter.AddGameMenuOption("town_keep", "party_wait_return_town_keep", "return to army camp", (GameMenuOption.OnConditionDelegate)delegate(MenuCallbackArgs args)
+		campaignStarter.AddGameMenuOption("town_keep", "party_wait_return_town_keep", returnToArmyText.ToString(), (GameMenuOption.OnConditionDelegate)delegate(MenuCallbackArgs args)
 		{
 			args.optionLeaveType = GameMenuOption.LeaveType.Leave;
 			return followingHero != null;
