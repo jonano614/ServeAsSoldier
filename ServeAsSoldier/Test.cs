@@ -863,7 +863,7 @@ public class Test : CampaignBehaviorBase
 		{
 			JoinPartyAction();
 		});
-		campaignStarter.AddWaitGameMenu("party_wait", "Party Leader: {PARTY_LEADER}\n{PARTY_TEXT}", wait_on_init, wait_on_condition, null, wait_on_tick, GameMenu.MenuAndOptionType.WaitMenuHideProgressAndHoursOption);
+		campaignStarter.AddWaitGameMenu("party_wait", "{=FLT0000309}Party Leader: {PARTY_LEADER}\n{PARTY_TEXT}", wait_on_init, wait_on_condition, null, wait_on_tick, GameMenu.MenuAndOptionType.WaitMenuHideProgressAndHoursOption);
 		TextObject textObject4 = new TextObject("{=FLT0000027}Visit Weaponsmith");
 		campaignStarter.AddGameMenuOption("party_wait", "party_wait_change_equipment", textObject4.ToString(), (GameMenuOption.OnConditionDelegate)delegate(MenuCallbackArgs args)
 		{

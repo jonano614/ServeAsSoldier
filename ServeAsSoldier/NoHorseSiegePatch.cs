@@ -7,6 +7,7 @@ using TaleWorlds.CampaignSystem.MapEvents;
 using TaleWorlds.CampaignSystem.Party;
 using TaleWorlds.Core;
 using TaleWorlds.Library;
+using TaleWorlds.Localization;
 
 namespace ServeAsSoldier;
 
@@ -17,7 +18,8 @@ internal class NoHorseSiegePatch
 	{
 		if (Test.followingHero != null && Test.followingHero.PartyBelongedTo.SiegeEvent != null && Hero.MainHero.CharacterObject.Equipment[EquipmentIndex.ArmorItemEndSlot].Item != null && ContainsParty(Test.followingHero.PartyBelongedTo.MapEvent.PartiesOnSide(BattleSideEnum.Attacker), Test.followingHero.PartyBelongedTo))
 		{
-			InformationManager.DisplayMessage(new InformationMessage("{=FLT0000308}Dismount from horse first before joining siege"));
+			TextObject text = new TextObject("{=FLT0000308}Dismount from horse first before joining siege");
+			InformationManager.DisplayMessage(new InformationMessage(text.ToString()));
 			return false;
 		}
 		return true;

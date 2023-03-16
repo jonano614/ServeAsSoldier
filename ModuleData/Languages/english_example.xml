@@ -303,5 +303,7 @@
 	<string id="FLT0000306" text="Go to the tavern" />
 	<string id="FLT0000307" text="Return to army camp" />
 	<string id="FLT0000308" text="Dismount from horse first before joining siege" />
+	<string id="FLT0000309" text="Party Leader: {PARTY_LEADER}\n{PARTY_TEXT}" />
+	<string id="FLT0000310" text="Can not retreat from this mission" />
   </strings>
 </base>
